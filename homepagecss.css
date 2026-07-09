@@ -584,8 +584,9 @@
       color: #07090f;
       flex-shrink: 0;
     }
-    .cv-fname { font-size: 0.97rem; font-weight: 700; color: var(--white); }
+    .cv-fname { font-size: 0.97rem; font-weight: 700; color: var(--white); overflow-wrap: anywhere; }
     .cv-fmeta { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
+    .cv-dl > div:last-child { min-width: 0; }
  
     .ci-list { display: flex; flex-direction: column; }
     .ci {
@@ -608,6 +609,7 @@
       flex-shrink: 0;
       color: var(--white);
     }
+    .ci > div:last-child { min-width: 0; }
     .ci-lbl {
       font-size: 0.76rem;
       font-weight: 600;
@@ -619,6 +621,8 @@
       font-size: 0.94rem;
       font-weight: 600;
       color: var(--white);
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
  
     /* Right column */
@@ -644,7 +648,8 @@
       flex-shrink: 0;
     }
     .loc-lbl { font-size: 0.8rem; color: var(--gray); margin-bottom: 4px; }
-    .loc-val { font-size: 1.08rem; font-weight: 700; color: var(--white); }
+    .loc-val { font-size: 1.08rem; font-weight: 700; color: var(--white); overflow-wrap: anywhere; }
+    .loc-card > div:last-child { min-width: 0; }
  
     .map-wrap {
       width: 100%;
@@ -763,4 +768,8 @@
 
       /* Hide the About photo on phones only (still shown on tablet) */
       .about-img { display: none; }
+
+      /* Give the contact card a bit more breathing room on small phones */
+      .cv-card { padding: 28px 22px; }
+      .loc-card { padding: 18px 18px; }
     }
