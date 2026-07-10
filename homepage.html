@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./homepagecss.css">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <!-- Progress bar -->
+  <div id="progress"></div>
+ 
+  <!-- Transition overlay -->
+  <div id="overlay"></div>
+ 
+  <!-- =============================================
+       NAV
+       ============================================= -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo" data-nav-logo>its<em>ranz</em></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a class="nav-link active" href="#home"     data-sec="home">Home</a></li>
+        <li><a class="nav-link"        href="#about"    data-sec="about">About</a></li>
+        <li><a class="nav-link"        href="#projects" data-sec="projects">Projects</a></li>
+        <li><a class="nav-link"        href="#contact"  data-sec="contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+ 
+  <!-- =============================================
+       HERO
+       ============================================= -->
+  <section id="home">
+    <div class="deco-wrap" aria-hidden="true">
+      <div class="deco-ring" style="width:460px;height:460px;top:-110px;left:-130px;"></div>
+      <div class="deco-ring" style="width:310px;height:310px;bottom:80px;right:-85px;"></div>
+      <div class="deco-ring" style="width:195px;height:195px;bottom:118px;right:30px;"></div>
+      <div class="dot-grid"  style="width:120px;height:100px;top:175px;left:72px;"></div>
+      <div class="dot-grid"  style="width:100px;height:80px; top:275px;right:440px;"></div>
+    </div>
+ 
+    <div class="inner">
+      <div class="hero-text">
+        <p class="hero-hello reveal">Hello!</p>
+        <h1 class="hero-name reveal d1">I'm <span class="gold">Ranzie Kirth</span></h1>
+        <p class="hero-sub reveal d2">I build scalable, full-stack web and mobile applications with a focus on seamless user experiences.</p>
+        <div class="hero-btns reveal d3">
+          <a href="#contact" class="btn btn-solid">
+            <!-- mail icon -->
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Contact Me
+          </a>
+          <a href="#projects" class="btn btn-outline">
+            <!-- eye icon -->
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            View Work
+          </a>
+        </div>
+      </div>
+ 
+      <div class="hero-img reveal-right">
+        <!--
+          TO ADD YOUR PHOTO:
+          1. Remove the <div class="photo-ph">…</div> below
+          2. Add: <img src="your-photo.png" alt="Carl James" style="object-fit:cover;width:100%;height:100%;">
+          Tip: Use remove.bg for a transparent-background PNG.
+        -->
+        <!-- <div class="photo-ph">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>Add your photo here<br><small>Replace this div with an &lt;img&gt; tag</small></p>
+        </div> -->
+
+        <picture>
+          <source media="(max-width: 620px)" srcset="./img/phoneversion.png">
+          <img src="./img/webpicture.png" alt="Ranzie Kirth">
+        </picture>
+      </div>
+    </div>
+ 
+    <div class="hero-divider" aria-hidden="true"></div>
+  </section>
+ 
+  <!-- =============================================
+       ABOUT
+       ============================================= -->
+  <section id="about">
+    <div class="deco-wrap" aria-hidden="true">
+      <div class="deco-ring" style="width:340px;height:340px;top:-55px;right:-72px;"></div>
+      <div class="dot-grid"  style="width:120px;height:100px;top:28px;right:220px;"></div>
+    </div>
+ 
+    <div class="inner">
+      <div class="about-img reveal-left">
+        <!--
+          TO ADD YOUR PHOTO:
+          Replace the div below with:
+          <img src="your-photo.png" alt="Carl James">
+        -->
+        <!-- <div class="photo-ph" style="height:100%;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>Add your photo here</p>
+        </div> -->
+
+        <img src="./img/aboutmelast.png" alt="Ranzie Kirth">
+
+
+      </div>
+ 
+      <div class="about-txt">
+        <p class="sec-label reveal">About Me</p>
+        <h2 class="about-heading reveal d1">A developer who loves building things</h2>
+        <p class="about-p reveal d2">I'm a passionate full-stack developer with a strong foundation in both web and mobile development. I enjoy turning complex problems into clean, elegant solutions that people actually want to use.</p>
+        <p class="about-p reveal d3">My journey in tech started with curiosity — tinkering with web pages and building small apps — and has grown into a dedicated pursuit of scalable, user-centered software.</p>
+        <a href="#contact" class="btn btn-outline reveal d4" style="margin-top:12px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Contact Me
+        </a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- =============================================
+       TECH STACK
+       ============================================= -->
+  <section id="tech">
+    <div class="deco-wrap" aria-hidden="true">
+      <div class="deco-ring" style="width:290px;height:290px;top:-65px;left:-85px;"></div>
+      <div class="deco-ring" style="width:255px;height:255px;bottom:-50px;right:-68px;"></div>
+      <div class="dot-grid"  style="width:120px;height:100px;top:55px;left:70px;"></div>
+      <div class="dot-grid"  style="width:100px;height:80px; bottom:85px;left:65px;"></div>
+    </div>
+ 
+    <div class="inner">
+      <p class="sec-label reveal">Tech Stack</p>
+      <h2 class="tech-hd reveal d1">Language, Framework &amp; Tools</h2>
+ 
+      <div class="tech-grid">
+        <div class="tech-card reveal d1">
+          <h3 class="tech-cat">Languages</h3>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">C#</span>
+            <span class="tag">Dart</span>
+          </div>
+        </div>
+        <div class="tech-card reveal d2">
+          <h3 class="tech-cat">Framework &amp; Platforms</h3>
+          <div class="tags">
+            <span class="tag">VS Code</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">Firebase</span>
+          </div>
+        </div>
+        <div class="tech-card reveal d3">
+          <h3 class="tech-cat">Tools &amp; Design</h3>
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- =============================================
+       PROJECTS
+       ============================================= -->
+  <section id="projects">
+    <div class="deco-wrap" aria-hidden="true">
+      <div class="deco-ring" style="width:290px;height:290px;top:-50px;right:-72px;"></div>
+      <div class="dot-grid"  style="width:110px;height:90px;top:55px;right:80px;"></div>
+    </div>
+ 
+    <div class="inner">
+      <p class="sec-label reveal">My Work</p>
+      <h2 class="proj-hd reveal d1">Featured Projects</h2>
+ 
+      <div class="proj-grid">
+        <!-- Card 1 -->
+        <div class="proj-card reveal d1">
+          <span class="proj-badge">Self - Hosted Web Application</span>
+          <h3 class="proj-title">Scheduling System</h3>
+          <p class="proj-desc">An advanced, self-hosted scheduling and workforce management system engineered specifically for security agencies. The platform features a centralized web portal for administrators to optimize guard deployment, alongside a dedicated mobile application that allows security personnel to track schedules and receive real-time updates in the field.</p>
+          <div class="proj-stack">
+            <span class="proj-tech">Flutter</span>
+            <span class="proj-tech">Firebase</span> 
+            <span class="proj-tech">Python</span>
+          </div>
+          <div class="proj-links">
+            <a href="#" class="proj-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              GitHub
+            </a>
+            <a href="#" class="proj-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="proj-card reveal d2">
+          <span class="proj-badge">Application</span>
+          <h3 class="proj-title">Anong Ulam App</h3>
+          <p class="proj-desc">End the daily struggle of asking "Anong ulam?" This app helps you decide what to cook today by matching meals to your exact cravings and preferences. Explore a curated list of famous Filipino recipes with simple, step-by-step cooking instructions to bring the taste of home right to your kitchen.</p>
+          <div class="proj-stack">
+            <span class="proj-tech">Flutter</span>
+            <span class="proj-tech">Firebase</span>
+          </div>
+          <div class="proj-links">
+            <a href="#" class="proj-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              GitHub
+            </a>
+            <a href="#" class="proj-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="proj-card reveal d3">
+          <span class="proj-badge">Application</span>
+          <h3 class="proj-title">Discipline App</h3>
+          <p class="proj-desc">A gamified habit tracker designed to make self-discipline engaging and fun. Users can list daily personal goals (e.g., fitness, reading, productivity), and completing these tasks directly rewards an in-app companion, causing it to evolve and grow stronger as the user maintains their real-world consistency.</p>
+          <div class="proj-stack">
+            <span class="proj-tech">Flutter</span>
+            <span class="proj-tech">Firebase</span>
+          </div>
+          <div class="proj-links">
+            <a href="#" class="proj-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              GitHub
+            </a>
+            <a href="#" class="proj-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- =============================================
+       CONTACT
+       ============================================= -->
+  <section id="contact">
+    <div class="deco-wrap" aria-hidden="true">
+      <div class="deco-ring" style="width:295px;height:295px;top:-38px;right:-68px;"></div>
+      <div class="dot-grid"  style="width:120px;height:100px;top:86px;right:465px;"></div>
+      <div class="dot-grid"  style="width:100px;height:80px; bottom:145px;left:55px;"></div>
+    </div>
+ 
+    <div class="inner">
+      <p class="sec-label reveal">Get In Touch</p>
+      <h2 class="contact-hd reveal d1">Let's Work Together</h2>
+ 
+      <div class="contact-cols">
+        <!-- LEFT CARD -->
+        <div class="cv-card reveal d1">
+          <h3 class="cv-title">Download My CV</h3>
+          <p class="cv-sub">Get a full overview of my skills and experience.</p>
+          <a href="./files/Myresume_2026.pdf" download class="cv-dl">
+            <div class="cv-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div>
+              <div class="cv-fname">Myresume_2026.pdf</div>
+              <div class="cv-fmeta">Click to download · PDF · 251 KB</div>
+            </div>
+          </a>
+ 
+          <div class="ci-list">
+            <div class="ci">
+              <div class="ci-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <div class="ci-lbl">Email</div>
+                <div class="ci-val">ranziekirthcahulugan@gmail.com</div>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.36-1.36a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="ci-lbl">Phone</div>
+                <div class="ci-val">+63 993 659 0564</div>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              </div>
+              <div>
+                <div class="ci-lbl">GitHub</div>
+                <div class="ci-val">https://github.com/ranziekirth</div>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- RIGHT COLUMN -->
+        <div class="contact-right reveal d2">
+          <div class="loc-card">
+            <div class="loc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="loc-lbl">Location</div>
+              <div class="loc-val">Philippines — Open to Remote</div>
+            </div>
+          </div>
+ 
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247609.9543782397!2d120.9998977!2d14.5547656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca03571ec38b%3A0x69d1d9d9a0b1b1c8!2sManila%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Map of Manila, Philippines"
+            ></iframe>
+          </div>
+ 
+          <a href="viber://chat?number=639936590564" class="msg-btn">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/> </svg>
+            Send Me a Message
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer>
+    <a href="#home" class="ft-logo">its<em>ranz</em></a>
+    <p class="ft-copy">© 2026. All rights reserved.</p>
+    <div class="ft-icons">
+      <a href="https://github.com/ranziekirth" target="_blank" rel="noopener" class="ft-ico" aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      </a>
+      <a href="mailto:ranziekirthcahulugan@gmail.com" class="ft-ico" aria-label="Email">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="./function.js"></script>
+    
+</body>
+</html>
