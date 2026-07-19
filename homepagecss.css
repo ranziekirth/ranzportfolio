@@ -333,6 +333,22 @@
       object-position: top center;
       border-radius: 20px;
     }
+    /* Twinkling star at the top right of the profile photo */
+    .hero-img .hero-star {
+      position: absolute;
+      top: 5%;
+      right: 16%;
+      width: 20%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0;
+      pointer-events: none;
+      animation: twinkle 2.4s ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 1;    transform: scale(1)    rotate(0deg); }
+      50%      { opacity: 0.35; transform: scale(0.8)  rotate(10deg); }
+    }
     /* Placeholder (remove once you drop your photo in) */
     .photo-ph {
       width: 100%;
@@ -372,6 +388,7 @@
       flex: 0 0 auto;
       width: clamp(260px, 30vw, 370px);
       height: clamp(340px, 40vw, 470px);
+      position: relative;
     }
     .about-img img {
       width: 100%;
@@ -379,6 +396,23 @@
       object-fit: cover;
       object-position: top;
       border-radius: 20px;
+    }
+    /* Bending question mark beside the top right of the about photo */
+    .about-img .about-qmark {
+      position: absolute;
+      top: -3%;
+      right: 2%;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0;
+      pointer-events: none;
+      transform-origin: 50% 100%;
+      animation: qmark-bend 3.2s ease-in-out infinite;
+    }
+    @keyframes qmark-bend { 
+      0%, 100% { transform: rotate(5deg); }
+      50%      { transform: rotate(0deg); }
     }
     .about-txt { flex: 1; }
     .about-heading {
@@ -458,12 +492,31 @@
       letter-spacing: 0.02em;
       margin-bottom: 56px;
     }
+    .proj-carousel { position: relative; }
     .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      display: flex;
       gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 10px 4px;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+    .proj-grid::-webkit-scrollbar { display: none; }
+    .proj-grid.dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .proj-grid img {
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      user-select: none;
     }
     .proj-card {
+      flex: 0 0 min(370px, 82vw);
+      scroll-snap-align: start;
       background: var(--bg-card);
       border: 1.5px solid var(--blue-border);
       border-radius: 16px;
@@ -472,6 +525,68 @@
       flex-direction: column;
       transition: border-color .3s, transform .3s, box-shadow .3s;
     }
+    .proj-img {
+      position: relative;
+      margin: -30px -28px 22px;
+      height: 205px;
+      border-radius: 14px 14px 0 0;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .proj-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12,17,33,0) 55%, rgba(12,17,33,0.9) 100%);
+      pointer-events: none;
+    }
+    .proj-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 5%;
+      transition: transform .55s ease;
+    }
+    .proj-card:hover .proj-img img { transform: scale(1.06); }
+    .proj-img-ph {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.22);
+      font-size: 0.8rem;
+      font-style: italic;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(35,78,210,0.22), transparent 58%),
+        radial-gradient(circle at 78% 85%, rgba(243,198,35,0.10), transparent 55%),
+        rgba(255,255,255,0.03);
+    }
+    /* Carousel arrows */
+    .proj-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(7,9,15,0.88);
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.45);
+      transition: background .25s, color .25s, opacity .25s;
+    }
+    .proj-nav:hover { background: var(--gold); color: var(--bg); }
+    .proj-nav.prev { left: -16px; }
+    .proj-nav.next { right: -16px; }
+    .proj-nav.off { opacity: 0.22; pointer-events: none; }
     .proj-card:hover {
       border-color: var(--gold);
       transform: translateY(-6px);
@@ -584,8 +699,9 @@
       color: #07090f;
       flex-shrink: 0;
     }
-    .cv-fname { font-size: 0.97rem; font-weight: 700; color: var(--white); }
+    .cv-fname { font-size: 0.97rem; font-weight: 700; color: var(--white); overflow-wrap: anywhere; }
     .cv-fmeta { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
+    .cv-dl > div:last-child { min-width: 0; }
  
     .ci-list { display: flex; flex-direction: column; }
     .ci {
@@ -608,6 +724,7 @@
       flex-shrink: 0;
       color: var(--white);
     }
+    .ci > div:last-child { min-width: 0; }
     .ci-lbl {
       font-size: 0.76rem;
       font-weight: 600;
@@ -619,6 +736,8 @@
       font-size: 0.94rem;
       font-weight: 600;
       color: var(--white);
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
  
     /* Right column */
@@ -644,7 +763,8 @@
       flex-shrink: 0;
     }
     .loc-lbl { font-size: 0.8rem; color: var(--gray); margin-bottom: 4px; }
-    .loc-val { font-size: 1.08rem; font-weight: 700; color: var(--white); }
+    .loc-val { font-size: 1.08rem; font-weight: 700; color: var(--white); overflow-wrap: anywhere; }
+    .loc-card > div:last-child { min-width: 0; }
  
     .map-wrap {
       width: 100%;
@@ -763,4 +883,13 @@
 
       /* Hide the About photo on phones only (still shown on tablet) */
       .about-img { display: none; }
+
+      /* Smaller carousel arrows kept inside the screen on phones */
+      .proj-nav { width: 40px; height: 40px; }
+      .proj-nav.prev { left: -6px; }
+      .proj-nav.next { right: -6px; }
+
+      /* Give the contact card a bit more breathing room on small phones */
+      .cv-card { padding: 28px 22px; }
+      .loc-card { padding: 18px 18px; }
     }

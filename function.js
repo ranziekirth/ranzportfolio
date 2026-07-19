@@ -93,6 +93,74 @@
       }, 160);
     });
  
+    /* ── Projects carousel arrows ── */
+    const projGrid = document.getElementById('projGrid');
+    const projPrev = document.getElementById('projPrev');
+    const projNext = document.getElementById('projNext');
+
+    if (projGrid && projPrev && projNext) {
+      // One card width + the 24px gap
+      function cardStep() {
+        const card = projGrid.querySelector('.proj-card');
+        return card ? card.getBoundingClientRect().width + 24 : 394;
+      }
+
+      projPrev.addEventListener('click', () => {
+        projGrid.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+      });
+      projNext.addEventListener('click', () => {
+        projGrid.scrollBy({ left: cardStep(), behavior: 'smooth' });
+      });
+
+      // Dim arrows when there is nothing more to show in that direction
+      function updateProjNav() {
+        const maxScroll = projGrid.scrollWidth - projGrid.clientWidth - 2;
+        projPrev.classList.toggle('off', projGrid.scrollLeft <= 2);
+        projNext.classList.toggle('off', projGrid.scrollLeft >= maxScroll);
+      }
+      projGrid.addEventListener('scroll', updateProjNav, { passive: true });
+      window.addEventListener('resize', updateProjNav);
+      updateProjNav();
+
+      /* ── Drag to scroll: hold left click and move the mouse ── */
+      let isDragging = false;
+      let hasDragged = false;
+      let dragStartX = 0;
+      let dragStartScroll = 0;
+
+      projGrid.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;          // left button only
+        isDragging = true;
+        hasDragged = false;
+        dragStartX = e.pageX;
+        dragStartScroll = projGrid.scrollLeft;
+        projGrid.classList.add('dragging');
+        e.preventDefault();                  // stop text/image selection
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.pageX - dragStartX;
+        if (Math.abs(dx) > 5) hasDragged = true;
+        projGrid.scrollLeft = dragStartScroll - dx;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        projGrid.classList.remove('dragging'); // snap back to nearest card
+      });
+
+      // Swallow the click if the user was dragging, so links don't open
+      projGrid.addEventListener('click', (e) => {
+        if (hasDragged) {
+          e.preventDefault();
+          e.stopPropagation();
+          hasDragged = false;
+        }
+      }, true);
+    }
+
     /* ── Scroll Reveal via IntersectionObserver ── */
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
  
