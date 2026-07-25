@@ -325,6 +325,14 @@
       width: clamp(300px, 36vw, 430px);
       height: clamp(380px, 46vw, 530px);
       position: relative;
+      /* Soft blue glow behind the figure (ties into the deco rings/dots)
+         so the cutout reads as lit & grounded instead of floating. It
+         shows through the transparent areas of the photo. Nudge the
+         alphas up/down to make the halo stronger or subtler. */
+      background: radial-gradient(55% 50% at 50% 42%,
+                  rgba(67,138,255,0.22),
+                  rgba(35,78,210,0.14) 46%,
+                  transparent 72%);
     }
     .hero-img img {
       width: 100%;
@@ -332,6 +340,15 @@
       object-fit: cover;
       object-position: top center;
       border-radius: 20px;
+    }
+    /* Fade the bottom of the photo into the page background so the
+       transparent cutout dissolves smoothly instead of ending in a
+       hard, straight edge. Scoped to <picture> so the star isn't masked.
+       Tip: raise the first % (e.g. 62%) to keep more of the body,
+       lower it (e.g. 48%) for a longer, softer fade. */
+    .hero-img picture img {
+      -webkit-mask-image: linear-gradient(to bottom, #000 55%, rgba(0,0,0,0.55) 78%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 55%, rgba(0,0,0,0.55) 78%, transparent 100%);
     }
     /* Twinkling star at the top right of the profile photo */
     .hero-img .hero-star {
@@ -389,6 +406,11 @@
       width: clamp(260px, 30vw, 370px);
       height: clamp(340px, 40vw, 470px);
       position: relative;
+      /* Same blue grounding glow as the hero figure. */
+      background: radial-gradient(55% 50% at 50% 42%,
+                  rgba(67,138,255,0.22),
+                  rgba(35,78,210,0.14) 46%,
+                  transparent 72%);
     }
     .about-img img {
       width: 100%;
@@ -396,6 +418,12 @@
       object-fit: cover;
       object-position: top;
       border-radius: 20px;
+    }
+    /* Same bottom fade as the hero photo. :not(.about-qmark) keeps the
+       floating question-mark decoration fully visible. */
+    .about-img img:not(.about-qmark) {
+      -webkit-mask-image: linear-gradient(to bottom, #000 55%, rgba(0,0,0,0.55) 78%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 55%, rgba(0,0,0,0.55) 78%, transparent 100%);
     }
     /* Bending question mark beside the top right of the about photo */
     .about-img .about-qmark {
@@ -545,7 +573,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 50% 5%;
+      object-position: 50% 45%;
       transition: transform .55s ease;
     }
     .proj-card:hover .proj-img img { transform: scale(1.06); }
